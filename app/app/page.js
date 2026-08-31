@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { supabase } from '../supabase'
+import { supabase } from './supabase'
 
 const emptyBusiness = {
   business_name: '', offer: '', website_url: '',
