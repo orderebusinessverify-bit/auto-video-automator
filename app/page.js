@@ -42,7 +42,12 @@ export default function Home() {
     if (!file) return
     const { error } = await supabase.storage
       .from('templates').upload(file.name, file, { upsert: true })
-    if (!error) { alert('Template uploaded!'); fetchTemplates() }
+    if (error) {
+      alert('Upload error: ' + error.message)
+    } else {
+      alert('Template uploaded successfully!')
+      await fetchTemplates()
+    }
   }
 
   async function handleSubmit() {
